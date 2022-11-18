@@ -36,7 +36,7 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
 
-document.querySelector(selector).appendChild(Header("This is title","Nov,18,2022","58 F"));
+document.querySelector(selector).appendChild(Header("Bloomtech Times","NOVEMBER 18, 2022","46°"));
 
   // TASK 2
   // ---------------------
@@ -54,7 +54,5 @@ document.querySelector(selector).appendChild(Header("This is title","Nov,18,2022
   return headerAppender ; 
 
 }
-
-
 
 export { Header, headerAppender }

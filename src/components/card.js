@@ -1,4 +1,19 @@
 const Card = (article) => {
+
+  const card = document.createElement("div") ; 
+  const headline = document.createElement("div") ; 
+  const author = document.createElement("div") ; 
+  const imgContainer = document.createElement("div") ; 
+  const image = document.createElement("img") ; 
+  const span = document.createElement("span") ; 
+
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(image); 
+  author.appendChild(span);
+
+  
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
