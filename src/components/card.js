@@ -1,6 +1,8 @@
+import axios from "axios";
+
 const Card = (article) => {
 
-  const card = document.createElement("div") ; 
+  const card = document.createElement("div") ;
   const headline = document.createElement("div") ; 
   const author = document.createElement("div") ; 
   const imgContainer = document.createElement("div") ; 
@@ -12,6 +14,15 @@ const Card = (article) => {
   author.appendChild(imgContainer);
   imgContainer.appendChild(image); 
   author.appendChild(span);
+
+  card.classList.add("card") ; 
+  headline.classList.add("headline") ; 
+  author.classList.add("author") ; 
+  imgContainer.classList.add("img-container") ;
+  
+  headline.textContent=article.headline;
+  span.textContent=article.authorName;
+  image.src=article.authorPhoto;
 
   
   // TASK 5
@@ -32,9 +43,19 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+   return card ; 
 }
 
 const cardAppender = (selector) => {
+
+  axios.get(`http://localhost:5001/api/articles`)
+  .then(res => {
+    console.log(res.data.articles);
+    document.querySelector(selector).appendChild(Card(res.data.articles));
+  })
+  .catch(err => {
+    console.error(err)
+  })
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
