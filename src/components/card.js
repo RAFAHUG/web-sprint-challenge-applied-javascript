@@ -46,13 +46,27 @@ const Card = (article) => {
    return card ; 
 }
 
+
+
 const cardAppender = (selector) => {
 
-  axios.get(`http://localhost:5001/api/articles`)
+  axios.get(`http://localhost:5001/api/articles/`)
   .then(res => {
-    console.log(res.data.articles);
-    document.querySelector(selector).appendChild(Card(res.data.articles));
+    
+    const articlesObj = res.data.articles ; 
+    
+    for ( let property in articlesObj ) {
+
+          property = articlesObj[property] ; 
+
+          for (let i = 0 ; i < property.length ; i ++ ) {
+          const articleProperty =  property[i] ; 
+          console.log (document.querySelector(selector).appendChild(Card(articleProperty)));
+          }            
+    }  ; 
+
   })
+
   .catch(err => {
     console.error(err)
   })
@@ -65,5 +79,9 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 }
+
+
+
+
 
 export { Card, cardAppender }

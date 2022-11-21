@@ -14,7 +14,7 @@ const Tabs = (topics) => {
     return newtab ; 
   });
 
-  console.log(tabs, "I AM TABS");
+  console.log(tabs);
   
   tabs.forEach(element => {
     divTopics.appendChild(element) ; 
